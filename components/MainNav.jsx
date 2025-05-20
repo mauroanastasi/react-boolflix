@@ -1,12 +1,14 @@
 import React from 'react'
+import { useState } from 'react'
 
 const MainNav = () => {
+    const [search, setSearch] = useState("")
     return (
 
         <header>
-            <div class="input-group mb-3">
+            <div className="input-group mb-3">
                 <button className="btn btn-outline-secondary" type="button" id="button-addon1">cerca</button>
-                <input type="text" className="form-control" placeholder="" aria-label="Example text with button addon" />
+                <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="form-control" placeholder="Inserisci il film" />
             </div>
         </header>
     )

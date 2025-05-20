@@ -44,6 +44,7 @@ const MainNav = () => {
                 {medias.map((media) => {
                     return (
                         <div className="card" key={`media-${media.id}`}>
+                            <img src={`https://image.tmdb.org/t/p/w92${media.backdrop_path}`} alt="" />
                             <h3>{media.title || media.name}</h3>
                             <h3>{media.original_title || media.original_name}</h3>
                             <h3>{media.original_language === 'it' ? (

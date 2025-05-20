@@ -5,12 +5,19 @@ import axios from 'axios'
 const MainNav = () => {
     const [search, setSearch] = useState("")
     const [movies, setMovies] = useState([])
+    const [series, setSeries] = useState([])
 
     const handleSearch = () => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=0450842658618b969d5d58f51db357a6&query=${search}`)
             .then((resp) => {
                 console.log(resp.data.results);
                 setMovies(resp.data.results);
+            })
+
+        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=0450842658618b969d5d58f51db357a6&language=it_IT&query=${search}`)
+            .then((resp) => {
+                console.log(resp.data.results);
+                setSeries(resp.data.results);
             })
             .catch((err) => {
                 console.error("Errore nella chiamata:", err);
@@ -43,6 +50,22 @@ const MainNav = () => {
                         </div>
                     );
                 })}
+                {/* {series.map((serie) => {
+                    return (
+                        <div className="card" key={movie.id}>
+                            <h3>{serie.name}</h3>
+                            <h3>{serie.original_name}</h3>
+                            <h3>{serie.original_language === 'it' ? (
+                                <img src="/itaFlag.png" className='flag' />
+                            ) : 'en' ? (
+                                <img src="/flagEng.png" className='flag' />
+                            ) :
+                                serie.original_language
+                            }</h3>
+                            <h3>{serie.vote_average}</h3>
+                        </div>
+                    );
+                })} */}
             </div>
 
         </>

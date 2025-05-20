@@ -4,10 +4,11 @@ import axios from 'axios'
 
 const MainNav = () => {
     const [search, setSearch] = useState("")
+    const [movies, setMovies] = useState([])
 
     const handleSearch = () => {
-        axios.get("https://api.themoviedb.org/3/search/movie?api_key=0450842658618b969d5d58f51db357a6&query=${search}").then((resp) => {
-            setSearch(resp.data)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=0450842658618b969d5d58f51db357a6&query=${search}`).then((resp) => {
+            setMovies(resp.data)
         })
     }
 
@@ -21,6 +22,7 @@ const MainNav = () => {
             </div>
         </header>
     )
+
 }
 
 export default MainNav

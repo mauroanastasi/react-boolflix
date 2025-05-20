@@ -48,11 +48,10 @@ const MainNav = () => {
                             <h3>{media.original_title || media.original_name}</h3>
                             <h3>{media.original_language === 'it' ? (
                                 <img src="/itaFlag.png" className='flag' />
-                            ) : 'en' ? (
+                            ) : media.original_language === 'en' ? (
                                 <img src="/flagEng.png" className='flag' />
-                            ) :
-                                media.original_language
-                            }</h3>
+                            ) : media.original_language}
+                            </h3>
                             <h3>{media.vote_average}</h3>
                         </div>
                     );

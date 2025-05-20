@@ -36,7 +36,7 @@ const MainNav = () => {
             <div>
                 {movies.map((movie) => {
                     return (
-                        <div className="card" key={movie.id}>
+                        <div className="card" key={`movie-${movie.id}`}>
                             <h3>{movie.title}</h3>
                             <h3>{movie.original_title}</h3>
                             <h3>{movie.original_language === 'it' ? (
@@ -50,9 +50,9 @@ const MainNav = () => {
                         </div>
                     );
                 })}
-                {/* {series.map((serie) => {
+                {series.map((serie) => {
                     return (
-                        <div className="card" key={movie.id}>
+                        <div className="card" key={`serie-${serie.id}`}>
                             <h3>{serie.name}</h3>
                             <h3>{serie.original_name}</h3>
                             <h3>{serie.original_language === 'it' ? (
@@ -65,7 +65,7 @@ const MainNav = () => {
                             <h3>{serie.vote_average}</h3>
                         </div>
                     );
-                })} */}
+                })}
             </div>
 
         </>

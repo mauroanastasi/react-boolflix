@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes } from 'react-router-dom'
+import MainNav from '../components/MainNav'
 
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <route>
+      <header>
+        <MainNav />
+      </header>
+      <main>
 
-          </route>
-        </Routes>
-      </BrowserRouter>
+      </main>
     </>
   )
 }

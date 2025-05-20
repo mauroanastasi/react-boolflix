@@ -1,11 +1,13 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const MainNav = () => {
     const [search, setSearch] = useState("")
     const [movies, setMovies] = useState([])
     const [series, setSeries] = useState([])
+    const [medias, setMedia] = useState([])
+
 
     const handleSearch = () => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=0450842658618b969d5d58f51db357a6&query=${search}`)
@@ -24,6 +26,11 @@ const MainNav = () => {
             });
     };
 
+    useEffect(() => {
+        setMedia([...movies, ...series])
+    }, [movies, series])
+
+
     return (
 
         <>
@@ -34,35 +41,19 @@ const MainNav = () => {
                 </div>
             </header>
             <div>
-                {movies.map((movie) => {
+                {medias.map((media) => {
                     return (
-                        <div className="card" key={`movie-${movie.id}`}>
-                            <h3>{movie.title}</h3>
-                            <h3>{movie.original_title}</h3>
-                            <h3>{movie.original_language === 'it' ? (
+                        <div className="card" key={`media-${media.id}`}>
+                            <h3>{media.title || media.name}</h3>
+                            <h3>{media.original_title || media.original_name}</h3>
+                            <h3>{media.original_language === 'it' ? (
                                 <img src="/itaFlag.png" className='flag' />
                             ) : 'en' ? (
                                 <img src="/flagEng.png" className='flag' />
                             ) :
-                                movie.original_language
+                                media.original_language
                             }</h3>
-                            <h3>{movie.vote_average}</h3>
-                        </div>
-                    );
-                })}
-                {series.map((serie) => {
-                    return (
-                        <div className="card" key={`serie-${serie.id}`}>
-                            <h3>{serie.name}</h3>
-                            <h3>{serie.original_name}</h3>
-                            <h3>{serie.original_language === 'it' ? (
-                                <img src="/itaFlag.png" className='flag' />
-                            ) : 'en' ? (
-                                <img src="/flagEng.png" className='flag' />
-                            ) :
-                                serie.original_language
-                            }</h3>
-                            <h3>{serie.vote_average}</h3>
+                            <h3>{media.vote_average}</h3>
                         </div>
                     );
                 })}

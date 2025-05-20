@@ -32,7 +32,13 @@ const MainNav = () => {
                         <div className="card" key={movie.id}>
                             <h3>{movie.title}</h3>
                             <h3>{movie.original_title}</h3>
-                            <h3>{movie.original_language}</h3>
+                            <h3>{movie.original_language === 'it' ? (
+                                <img src="/itaFlag.png" className='flag' />
+                            ) : 'en' ? (
+                                <img src="/flagEng.png" className='flag' />
+                            ) :
+                                movie.original_language
+                            }</h3>
                             <h3>{movie.vote_average}</h3>
                         </div>
                     );

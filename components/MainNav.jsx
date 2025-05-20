@@ -26,6 +26,18 @@ const MainNav = () => {
                     <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="form-control" placeholder="Inserisci il film" />
                 </div>
             </header>
+            <div>
+                {movies.map((movie) => {
+                    return (
+                        <div className="card" key={movie.id}>
+                            <h3>{movie.title}</h3>
+                            <h3>{movie.original_title}</h3>
+                            <h3>{movie.original_language}</h3>
+                            <h3>{movie.vote_average}</h3>
+                        </div>
+                    );
+                })}
+            </div>
 
         </>
     )

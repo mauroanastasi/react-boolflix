@@ -1,6 +1,24 @@
+header {
+  background-color: #1b1d44;
+  height: 50px;
+}
+
 .flag {
   width: 22px;
   height: 22px;
+}
+
+.pulsante {
+  margin-right: 20px;
+}
+
+.cerca {
+  margin-right: 10px;
+}
+
+.ricerca {
+  text-align: right;
+  padding-top: 10px;
 }
 
 .xxx {

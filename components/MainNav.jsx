@@ -36,10 +36,10 @@ const MainNav = () => {
     return (
 
         <>
-            <header>
-                <div className="input-group mb-3">
-                    <button onClick={handleSearch} className="btn btn-outline-secondary" type="button" id="button-addon1">cerca</button>
-                    <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="form-control" placeholder="Inserisci il film" />
+            <header className='ricerca'>
+                <div className="mb-3 searchBar">
+                    <button onClick={handleSearch} className="pulsante" type="button" id="button-addon1">cerca</button>
+                    <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="cerca" placeholder="Inserisci il film" />
                 </div>
             </header>
             <div className='xxx'  >

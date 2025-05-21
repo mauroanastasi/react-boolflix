@@ -11,7 +11,6 @@ function App() {
         <MainNav />
       </header>
       <main>
-
       </main>
     </>
   )

@@ -42,26 +42,29 @@ const MainNav = () => {
                     <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="form-control" placeholder="Inserisci il film" />
                 </div>
             </header>
-            <div>
+            <div className='xxx'  >
                 {medias.map((media) => {
                     return (
+                        <>
+                            <div>
+                                <div key={`media-${media.id}`}>
+                                    <img src={`https://image.tmdb.org/t/p/w342${media.backdrop_path}`} alt="" />
+                                    <h3>{media.title || media.name}</h3>
+                                    <h3>{media.original_title || media.original_name}</h3>
+                                    <h3>{media.original_language === 'it' ? (
+                                        <img src="/itaFlag.png" className='flag' />
+                                    ) : media.original_language === 'en' ? (
+                                        <img src="/flagEng.png" className='flag' />
+                                    ) : media.original_language}
+                                    </h3>
+                                    <h3><RankingStars vote_average={media.vote_average} /></h3>
 
-                        <div key={`media-${media.id}`}>
-                            <img src={`https://image.tmdb.org/t/p/w342${media.backdrop_path}`} alt="" />
-                            <h3>{media.title || media.name}</h3>
-                            <h3>{media.original_title || media.original_name}</h3>
-                            <h3>{media.original_language === 'it' ? (
-                                <img src="/itaFlag.png" className='flag' />
-                            ) : media.original_language === 'en' ? (
-                                <img src="/flagEng.png" className='flag' />
-                            ) : media.original_language}
-                            </h3>
-                            <h3><RankingStars vote_average={media.vote_average} /></h3>
-                        </div>
+                                </div>
+                            </div>
+                        </>
                     );
                 })}
             </div>
-
         </>
     )
 

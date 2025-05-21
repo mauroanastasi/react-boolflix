@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Stars from './Stars'
-
+import RankingStars from './RankingStars'
+import FontAwesome from 'react-fontawesome'
 
 const MainNav = () => {
     const [search, setSearch] = useState("")
@@ -56,7 +56,7 @@ const MainNav = () => {
                                 <img src="/flagEng.png" className='flag' />
                             ) : media.original_language}
                             </h3>
-                            <h3><Stars media={media.vote_average} /></h3>
+                            <h3><RankingStars media={media.vote_average} /></h3>
                         </div>
                     );
                 })}

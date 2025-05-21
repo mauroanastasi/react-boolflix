@@ -56,7 +56,7 @@ const MainNav = () => {
                                 <img src="/flagEng.png" className='flag' />
                             ) : media.original_language}
                             </h3>
-                            <h3><RankingStars media={media.vote_average} /></h3>
+                            <h3><RankingStars vote_average={media.vote_average} /></h3>
                         </div>
                     );
                 })}

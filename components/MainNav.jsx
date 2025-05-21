@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Stars from './Stars'
+
 
 const MainNav = () => {
     const [search, setSearch] = useState("")
@@ -43,8 +45,9 @@ const MainNav = () => {
             <div>
                 {medias.map((media) => {
                     return (
-                        <div className="card" key={`media-${media.id}`}>
-                            <img src={`https://image.tmdb.org/t/p/w92${media.backdrop_path}`} alt="" />
+
+                        <div key={`media-${media.id}`}>
+                            <img src={`https://image.tmdb.org/t/p/w342${media.backdrop_path}`} alt="" />
                             <h3>{media.title || media.name}</h3>
                             <h3>{media.original_title || media.original_name}</h3>
                             <h3>{media.original_language === 'it' ? (
@@ -53,7 +56,7 @@ const MainNav = () => {
                                 <img src="/flagEng.png" className='flag' />
                             ) : media.original_language}
                             </h3>
-                            <h3>{media.vote_average}</h3>
+                            <h3><Stars media={media.vote_average} /></h3>
                         </div>
                     );
                 })}

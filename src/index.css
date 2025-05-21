@@ -8,3 +8,16 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+.yyy {
+  border: 1px solid black;
+}
+
+.contenutoCard {
+  display: none;
+
+}
+
+.yyy:hover .contenutoCard {
+  display: inline;
+}

@@ -37,6 +37,10 @@ const MainNav = () => {
 
         <>
             <header className='ricerca'>
+                <div className='logo' >
+                    <img src="/logoBoolflix.png" alt="" />
+
+                </div>
                 <div className="mb-3 searchBar">
                     <button onClick={handleSearch} className="pulsante" type="button" id="button-addon1">cerca</button>
                     <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="cerca" placeholder="Inserisci il film" />
